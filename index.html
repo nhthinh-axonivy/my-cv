@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" class=""> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Nguyen Hung Thinh</title>
@@ -8,28 +7,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        /* Define color variables for light and dark themes */
+        :root {
+            --bg-color: #f8fafc; /* Tailwind gray-50 */
+            --text-color: #1f2937; /* Tailwind gray-800 */
+            --card-bg-color: white;
+            --section-title-color: #1e3a8a; /* Tailwind blue-800 */
+            --section-title-border-color: #60a5fa; /* Tailwind blue-400 */
+            --link-color: #3b82f6; /* Tailwind blue-500 */
+            --link-hover-color: #1d4ed8; /* Tailwind blue-700 */
+            --tag-bg-color: #e0f2fe; /* Tailwind sky-100 */
+            --tag-text-color: #0c4a6e; /* Tailwind sky-800 */
+            --timeline-dot-color: #60a5fa; /* Tailwind blue-400 */
+            --timeline-line-color: #e5e7eb; /* Tailwind gray-200 */
+            --header-name-color: #1d4ed8; /* Tailwind blue-700 */
+            --header-subtitle-color: #4b5563; /* Tailwind gray-600 */
+            --icon-color: #4b5563; /* Tailwind gray-600 for icons in header */
+        }
+
+        html.dark {
+            --bg-color: #111827; /* Tailwind gray-900 */
+            --text-color: #d1d5db; /* Tailwind gray-300 */
+            --card-bg-color: #1f2937; /* Tailwind gray-800 */
+            --section-title-color: #93c5fd; /* Tailwind blue-300 */
+            --section-title-border-color: #3b82f6; /* Tailwind blue-500 */
+            --link-color: #60a5fa; /* Tailwind blue-400 */
+            --link-hover-color: #93c5fd; /* Tailwind blue-300 */
+            --tag-bg-color: #0c4a6e; /* Tailwind sky-800 */
+            --tag-text-color: #e0f2fe; /* Tailwind sky-100 */
+            --timeline-dot-color: #3b82f6; /* Tailwind blue-500 */
+            --timeline-line-color: #4b5563; /* Tailwind gray-600 */
+            --header-name-color: #60a5fa; /* Tailwind blue-400 */
+            --header-subtitle-color: #9ca3af; /* Tailwind gray-400 */
+            --icon-color: #9ca3af; /* Tailwind gray-400 for icons in header */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Tailwind gray-50 */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .section-title {
-            border-bottom: 2px solid #60a5fa; /* Tailwind blue-400 */
+            border-bottom: 2px solid var(--section-title-border-color);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
             font-size: 1.5rem; /* text-2xl */
             font-weight: 600; /* font-semibold */
-            color: #1e3a8a; /* Tailwind blue-800 */
+            color: var(--section-title-color);
+            transition: border-color 0.3s ease, color 0.3s ease;
         }
         .card {
-            background-color: white;
+            background-color: var(--card-bg-color);
             border-radius: 0.75rem; /* rounded-xl */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
             padding: 1.5rem; /* p-6 */
             margin-bottom: 1.5rem; /* mb-6 */
+            transition: background-color 0.3s ease;
         }
         .tag {
-            background-color: #e0f2fe; /* Tailwind lightBlue-100 / sky-100 */
-            color: #0c4a6e; /* Tailwind lightBlue-700 / sky-800 */
+            background-color: var(--tag-bg-color);
+            color: var(--tag-text-color);
             padding: 0.25rem 0.75rem;
             border-radius: 9999px; /* rounded-full */
             font-size: 0.875rem; /* text-sm */
@@ -37,13 +75,14 @@
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
             display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .icon-link {
-            color: #3b82f6; /* Tailwind blue-500 */
+            color: var(--link-color);
             transition: color 0.3s ease;
         }
         .icon-link:hover {
-            color: #1d4ed8; /* Tailwind blue-700 */
+            color: var(--link-hover-color);
         }
         .timeline-item::before {
             content: '';
@@ -52,9 +91,11 @@
             top: 4px;
             width: 12px;
             height: 12px;
-            background-color: #60a5fa; /* Tailwind blue-400 */
+            background-color: var(--timeline-dot-color);
             border-radius: 50%;
-            border: 2px solid white;
+            border: 2px solid var(--card-bg-color); /* Use card background for border to blend */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            z-index: 1; /* Ensure dot is above the line */
         }
         .timeline-line {
             position: absolute;
@@ -62,21 +103,55 @@
             top: 4px;
             bottom: 0;
             width: 2px;
-            background-color: #e5e7eb; /* Tailwind gray-200 */
+            background-color: var(--timeline-line-color);
+            transition: background-color 0.3s ease;
         }
-        /* Ensure enough space for the timeline pseudo-elements */
         .timeline-container {
-            padding-left: 40px; /* Increased padding to avoid overlap */
+            padding-left: 40px;
+        }
+
+        /* Specific text color updates */
+        .header-name { color: var(--header-name-color); }
+        .header-subtitle { color: var(--header-subtitle-color); }
+        .contact-info span, .contact-info a { color: var(--icon-color); }
+        .contact-info a:hover { color: var(--link-hover-color); }
+        .job-title { color: var(--text-color); } /* Main text color for job titles */
+        html.dark .job-title { color: var(--text-color); }
+        .job-meta { color: #6b7280; } /* Tailwind gray-500 */
+        html.dark .job-meta { color: #9ca3af; } /* Tailwind gray-400 */
+        .list-disc li { color: var(--text-color); }
+        .skill-category-title { color: var(--link-color); } /* Using link color for skill category titles for consistency */
+
+
+        /* Dark Mode Toggle Button */
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--icon-color);
+            font-size: 1.5rem; /* text-2xl */
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        #theme-toggle:hover {
+            color: var(--link-hover-color);
+            background-color: rgba(0,0,0,0.05);
+        }
+        html.dark #theme-toggle:hover {
+            background-color: rgba(255,255,255,0.1);
         }
     </style>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="antialiased">
     <div class="container mx-auto max-w-4xl p-4 sm:p-6 lg:p-8">
 
-        <header class="text-center mb-10">
-            <h1 class="text-4xl sm:text-5xl font-bold text-blue-700">Nguyen Hung Thinh</h1>
-            <p class="text-xl sm:text-2xl text-gray-600 mt-2">Software Engineer</p>
-            <div class="mt-6 flex flex-wrap justify-center items-center space-x-4 sm:space-x-6 text-gray-700">
+        <header class="text-center mb-10 relative">
+            <button id="theme-toggle" title="Toggle dark mode" class="absolute top-0 right-0 mt-2 mr-2 sm:mt-0 sm:mr-0">
+                <i class="fas fa-moon"></i> </button>
+            <h1 class="text-4xl sm:text-5xl font-bold header-name">Nguyen Hung Thinh</h1>
+            <p class="text-xl sm:text-2xl header-subtitle mt-2">Software Engineer</p>
+            <div class="mt-6 flex flex-wrap justify-center items-center space-x-4 sm:space-x-6 contact-info">
                 <a href="tel:+84705018299" class="icon-link hover:underline text-sm sm:text-base">
                     <i class="fas fa-phone mr-1"></i> +84 705018299
                 </a>
@@ -93,7 +168,7 @@
         <section class="mb-8">
             <h2 class="section-title">Summary</h2>
             <div class="card">
-                <p class="text-gray-700 leading-relaxed">
+                <p class="leading-relaxed">
                     I am a dedicated Software Developer with experience in Java and various related technologies, focusing on developing web and enterprise applications. I am constantly learning and seeking to improve my skills in Spring Boot, React JS, Docker, SQL, and REST APIs. I have a particular interest in delivering clean, maintainable code while following Agile principles and applying test-driven development. I aim to contribute to meaningful projects and continually grow as a developer.
                 </p>
             </div>
@@ -104,23 +179,17 @@
             <div class="timeline-container relative">
                 <div class="card relative pl-8 mb-8 timeline-item">
                     <div class="timeline-line"></div>
-                    <h3 class="text-xl font-semibold text-blue-600">Axon Ivy Portal</h3>
-                    <p class="text-md font-medium text-gray-600">Full Stack Developer</p>
-                    <p class="text-sm text-gray-500 mb-2">October 2022 - Present | On-site | Team size: 8</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                    <h3 class="text-xl font-semibold skill-category-title">Axon Ivy Portal</h3>
+                    <p class="text-md font-medium job-title">Full Stack Developer</p>
+                    <p class="text-sm job-meta mb-2">October 2022 - Present | On-site | Team size: 8</p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
                         <li>Developed and maintained a web-based portal for users to manage their Axon Ivy platform applications.</li>
                         <li>Enhanced user interface and user experience for task management.</li>
                         <li>Assisted with CI/CD processes using Docker and Jenkins, ensuring code quality with GitHub Actions.</li>
                     </ul>
                     <div class="mb-3">
                         <span class="font-semibold text-sm">Technologies:</span>
-                        <span class="tag">Java Core</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Jenkins</span>
-                        <span class="tag">GitHub Actions</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">REST API</span>
+                        <span class="tag">Java Core</span><span class="tag">JavaScript</span><span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">SQL</span><span class="tag">REST API</span>
                     </div>
                     <a href="https://github.com/axonivy-portal" target="_blank" rel="noopener noreferrer" class="icon-link text-sm">
                         <i class="fab fa-github mr-1"></i> Axon Ivy Portal GitHub
@@ -129,17 +198,16 @@
 
                 <div class="card relative pl-8 mb-8 timeline-item">
                      <div class="timeline-line"></div>
-                    <h3 class="text-xl font-semibold text-blue-600">Axon Ivy Mobile Application</h3>
-                    <p class="text-md font-medium text-gray-600">Mobile Developer</p>
-                    <p class="text-sm text-gray-500 mb-2">November 2023 - April 2024 | On-site | Team size: 4</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                    <h3 class="text-xl font-semibold skill-category-title">Axon Ivy Mobile Application</h3>
+                    <p class="text-md font-medium job-title">Mobile Developer</p>
+                    <p class="text-sm job-meta mb-2">November 2023 - April 2024 | On-site | Team size: 4</p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
                         <li>Contributed to a mobile app for remote access to the Axon Ivy platform, enabling task management from anywhere.</li>
                         <li>Ensured smooth integration with existing systems for a seamless mobile user experience.</li>
                     </ul>
                     <div class="mb-3">
                         <span class="font-semibold text-sm">Technologies:</span>
-                        <span class="tag">Flutter</span>
-                        <span class="tag">REST API</span>
+                        <span class="tag">Flutter</span><span class="tag">REST API</span>
                     </div>
                      <a href="https://github.com/axonivy-mobile" target="_blank" rel="noopener noreferrer" class="icon-link text-sm">
                         <i class="fab fa-github mr-1"></i> Axon Ivy Mobile App GitHub
@@ -147,19 +215,16 @@
                 </div>
 
                 <div class="card relative pl-8 timeline-item">
-                    <h3 class="text-xl font-semibold text-blue-600">Agile Terms Project (Internal - Intern)</h3>
-                    <p class="text-md font-medium text-gray-600">Backend Developer</p>
-                    <p class="text-sm text-gray-500 mb-2">July 2022 - September 2022 | On-site | Team size: 10</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                    <h3 class="text-xl font-semibold skill-category-title">Agile Terms Project (Internal - Intern)</h3>
+                    <p class="text-md font-medium job-title">Backend Developer</p>
+                    <p class="text-sm job-meta mb-2">July 2022 - September 2022 | On-site | Team size: 10</p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
                         <li>Developed a web application serving as an online dictionary for Agile software development terms.</li>
                         <li>Enhanced application performance and functionality, integrating features for expert contributions and learner engagement.</li>
                     </ul>
                     <div>
                         <span class="font-semibold text-sm">Technologies:</span>
-                        <span class="tag">Spring Boot</span>
-                        <span class="tag">React JS</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Docker</span>
+                        <span class="tag">Spring Boot</span><span class="tag">React JS</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
                     </div>
                 </div>
             </div>
@@ -170,27 +235,27 @@
             <div class="card">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Languages</h4>
+                        <h4 class="font-semibold text-lg skill-category-title mb-2">Languages</h4>
                         <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">Dart</span>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Frameworks & Libraries</h4>
+                        <h4 class="font-semibold text-lg skill-category-title mb-2">Frameworks & Libraries</h4>
                         <span class="tag">Spring Boot</span><span class="tag">React JS</span><span class="tag">Apache POI</span><span class="tag">JPA</span><span class="tag">Hibernate</span>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Tools & Platforms</h4>
+                        <h4 class="font-semibold text-lg skill-category-title mb-2">Tools & Platforms</h4>
                         <span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">Maven</span><span class="tag">SonarQube</span>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Web Technologies</h4>
+                        <h4 class="font-semibold text-lg skill-category-title mb-2">Web Technologies</h4>
                         <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SASS</span><span class="tag">JavaScript</span><span class="tag">JSF</span><span class="tag">JSP</span>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Databases</h4>
+                        <h4 class="font-semibold text-lg skill-category-title mb-2">Databases</h4>
                         <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">H2DB</span>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-lg text-blue-600 mb-2">APIs</h4>
+                        <h4 class="font-semibold text-lg skill-category-title mb-2">APIs</h4>
                         <span class="tag">REST Template</span><span class="tag">JAX-RS Client API</span><span class="tag">SAP SuccessFactors</span>
                     </div>
                 </div>
@@ -200,7 +265,7 @@
         <section class="mb-8">
             <h2 class="section-title">Professional Attributes</h2>
             <div class="card">
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside space-y-2">
                     <li>Comfortable working within Agile methodologies and collaborating with teams.</li>
                     <li>Strong desire to continually improve coding practices and work on clean, maintainable solutions.</li>
                     <li>Willing to learn and contribute to both test-driven development and continuous integration efforts.</li>
@@ -213,14 +278,14 @@
              <h2 class="section-title">Education & Certificates</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="card">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2"><i class="fas fa-graduation-cap mr-2"></i>Education</h3>
-                    <p class="font-medium">Bachelor of Science in Computer Science & Mathematics (In Progress)</p>
-                    <p class="text-gray-600">Ho Chi Minh City University of Science, Ho Chi Minh City, Vietnam</p>
-                    <p class="text-sm text-gray-500">Expected Graduation: 2029</p>
+                    <h3 class="text-xl font-semibold skill-category-title mb-2"><i class="fas fa-graduation-cap mr-2"></i>Education</h3>
+                    <p class="font-medium job-title">Bachelor of Science in Computer Science & Mathematics (In Progress)</p>
+                    <p class="job-meta">Ho Chi Minh City University of Science, Ho Chi Minh City, Vietnam</p>
+                    <p class="text-sm job-meta">Expected Graduation: 2029</p>
                 </div>
                 <div class="card">
-                     <h3 class="text-xl font-semibold text-blue-600 mb-2"><i class="fas fa-certificate mr-2"></i>Certificates</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                     <h3 class="text-xl font-semibold skill-category-title mb-2"><i class="fas fa-certificate mr-2"></i>Certificates</h3>
+                    <ul class="list-disc list-inside space-y-1">
                         <li>Java 17 completed (Udemy)</li>
                         <li>JavaScript completed (Udemy)</li>
                         <li>Flutter & Dart (Udemy)</li>
@@ -234,7 +299,7 @@
         <section class="mb-8">
             <h2 class="section-title">Interests</h2>
             <div class="card">
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <ul class="list-disc list-inside space-y-2">
                     <li>Exploring artificial intelligence and machine learning applications.</li>
                     <li>Contributing to open-source projects and continuously improving coding skills.</li>
                     <li>Playing badminton and staying active.</li>
@@ -244,11 +309,56 @@
         </section>
 
         <footer class="text-center mt-12 mb-6">
-            <p class="text-sm text-gray-500">
+            <p class="text-sm job-meta">
                 Last updated: May 2025
             </p>
         </footer>
-
     </div>
+
+    <script>
+        // Get the theme toggle button and the icon inside it
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = themeToggle.querySelector('i');
+        // Get the html element to toggle the 'dark' class
+        const htmlElement = document.documentElement;
+
+        // Function to apply the theme
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                themeToggleIcon.classList.remove('fa-moon');
+                themeToggleIcon.classList.add('fa-sun');
+            } else {
+                htmlElement.classList.remove('dark');
+                themeToggleIcon.classList.remove('fa-sun');
+                themeToggleIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Function to toggle the theme
+        function toggleTheme() {
+            const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+            applyTheme(currentTheme);
+            // Save the user's preference to localStorage
+            localStorage.setItem('theme', currentTheme);
+        }
+
+        // Event listener for the theme toggle button
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Check for saved theme preference in localStorage or system preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (prefersDarkScheme) {
+                applyTheme('dark');
+            } else {
+                applyTheme('light'); // Default to light theme
+            }
+        });
+    </script>
 </body>
 </html>
