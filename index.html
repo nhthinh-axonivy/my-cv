@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nguyen Hung Thinh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Tailwind gray-50 */
+        }
+        .section-title {
+            border-bottom: 2px solid #60a5fa; /* Tailwind blue-400 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600; /* font-semibold */
+            color: #1e3a8a; /* Tailwind blue-800 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .tag {
+            background-color: #e0f2fe; /* Tailwind lightBlue-100 / sky-100 */
+            color: #0c4a6e; /* Tailwind lightBlue-700 / sky-800 */
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px; /* rounded-full */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .icon-link {
+            color: #3b82f6; /* Tailwind blue-500 */
+            transition: color 0.3s ease;
+        }
+        .icon-link:hover {
+            color: #1d4ed8; /* Tailwind blue-700 */
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px; /* Adjust to center the dot on the line */
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background-color: #60a5fa; /* Tailwind blue-400 */
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -24px; /* Center the line */
+            top: 4px;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e7eb; /* Tailwind gray-200 */
+        }
+        /* Ensure enough space for the timeline pseudo-elements */
+        .timeline-container {
+            padding-left: 40px; /* Increased padding to avoid overlap */
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 lg:p-8">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-bold text-blue-700">Nguyen Hung Thinh</h1>
+            <p class="text-xl sm:text-2xl text-gray-600 mt-2">Software Engineer</p>
+            <div class="mt-6 flex flex-wrap justify-center items-center space-x-4 sm:space-x-6 text-gray-700">
+                <a href="tel:+84705018299" class="icon-link hover:underline text-sm sm:text-base">
+                    <i class="fas fa-phone mr-1"></i> +84 705018299
+                </a>
+                <a href="mailto:nht.8299@gmail.com" class="icon-link hover:underline text-sm sm:text-base">
+                    <i class="fas fa-envelope mr-1"></i> nht.8299@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/nhthinh8299/" target="_blank" rel="noopener noreferrer" class="icon-link hover:underline text-sm sm:text-base">
+                    <i class="fab fa-linkedin mr-1"></i> nhthinh8299
+                </a>
+                <span class="text-sm sm:text-base"><i class="fas fa-map-marker-alt mr-1"></i> Ho Chi Minh City, Vietnam</span>
+            </div>
+        </header>
+
+        <section class="mb-8">
+            <h2 class="section-title">Summary</h2>
+            <div class="card">
+                <p class="text-gray-700 leading-relaxed">
+                    I am a dedicated Software Developer with experience in Java and various related technologies, focusing on developing web and enterprise applications. I am constantly learning and seeking to improve my skills in Spring Boot, React JS, Docker, SQL, and REST APIs. I have a particular interest in delivering clean, maintainable code while following Agile principles and applying test-driven development. I aim to contribute to meaningful projects and continually grow as a developer.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline-container relative">
+                <div class="card relative pl-8 mb-8 timeline-item">
+                    <div class="timeline-line"></div>
+                    <h3 class="text-xl font-semibold text-blue-600">Axon Ivy Portal</h3>
+                    <p class="text-md font-medium text-gray-600">Full Stack Developer</p>
+                    <p class="text-sm text-gray-500 mb-2">October 2022 - Present | On-site | Team size: 8</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                        <li>Developed and maintained a web-based portal for users to manage their Axon Ivy platform applications.</li>
+                        <li>Enhanced user interface and user experience for task management.</li>
+                        <li>Assisted with CI/CD processes using Docker and Jenkins, ensuring code quality with GitHub Actions.</li>
+                    </ul>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm">Technologies:</span>
+                        <span class="tag">Java Core</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                    <a href="https://github.com/axonivy-portal" target="_blank" rel="noopener noreferrer" class="icon-link text-sm">
+                        <i class="fab fa-github mr-1"></i> Axon Ivy Portal GitHub
+                    </a>
+                </div>
+
+                <div class="card relative pl-8 mb-8 timeline-item">
+                     <div class="timeline-line"></div>
+                    <h3 class="text-xl font-semibold text-blue-600">Axon Ivy Mobile Application</h3>
+                    <p class="text-md font-medium text-gray-600">Mobile Developer</p>
+                    <p class="text-sm text-gray-500 mb-2">November 2023 - April 2024 | On-site | Team size: 4</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                        <li>Contributed to a mobile app for remote access to the Axon Ivy platform, enabling task management from anywhere.</li>
+                        <li>Ensured smooth integration with existing systems for a seamless mobile user experience.</li>
+                    </ul>
+                    <div class="mb-3">
+                        <span class="font-semibold text-sm">Technologies:</span>
+                        <span class="tag">Flutter</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                     <a href="https://github.com/axonivy-mobile" target="_blank" rel="noopener noreferrer" class="icon-link text-sm">
+                        <i class="fab fa-github mr-1"></i> Axon Ivy Mobile App GitHub
+                    </a>
+                </div>
+
+                <div class="card relative pl-8 timeline-item">
+                    <h3 class="text-xl font-semibold text-blue-600">Agile Terms Project (Internal - Intern)</h3>
+                    <p class="text-md font-medium text-gray-600">Backend Developer</p>
+                    <p class="text-sm text-gray-500 mb-2">July 2022 - September 2022 | On-site | Team size: 10</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                        <li>Developed a web application serving as an online dictionary for Agile software development terms.</li>
+                        <li>Enhanced application performance and functionality, integrating features for expert contributions and learner engagement.</li>
+                    </ul>
+                    <div>
+                        <span class="font-semibold text-sm">Technologies:</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">React JS</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="card">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Languages</h4>
+                        <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">Dart</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Frameworks & Libraries</h4>
+                        <span class="tag">Spring Boot</span><span class="tag">React JS</span><span class="tag">Apache POI</span><span class="tag">JPA</span><span class="tag">Hibernate</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Tools & Platforms</h4>
+                        <span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">Maven</span><span class="tag">SonarQube</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Web Technologies</h4>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SASS</span><span class="tag">JavaScript</span><span class="tag">JSF</span><span class="tag">JSP</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-blue-600 mb-2">Databases</h4>
+                        <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">H2DB</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-blue-600 mb-2">APIs</h4>
+                        <span class="tag">REST Template</span><span class="tag">JAX-RS Client API</span><span class="tag">SAP SuccessFactors</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="section-title">Professional Attributes</h2>
+            <div class="card">
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Comfortable working within Agile methodologies and collaborating with teams.</li>
+                    <li>Strong desire to continually improve coding practices and work on clean, maintainable solutions.</li>
+                    <li>Willing to learn and contribute to both test-driven development and continuous integration efforts.</li>
+                    <li>Focused on ensuring Java application performance and improving efficiency where possible.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-8">
+             <h2 class="section-title">Education & Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2"><i class="fas fa-graduation-cap mr-2"></i>Education</h3>
+                    <p class="font-medium">Bachelor of Science in Computer Science & Mathematics (In Progress)</p>
+                    <p class="text-gray-600">Ho Chi Minh City University of Science, Ho Chi Minh City, Vietnam</p>
+                    <p class="text-sm text-gray-500">Expected Graduation: 2029</p>
+                </div>
+                <div class="card">
+                     <h3 class="text-xl font-semibold text-blue-600 mb-2"><i class="fas fa-certificate mr-2"></i>Certificates</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Java 17 completed (Udemy)</li>
+                        <li>JavaScript completed (Udemy)</li>
+                        <li>Flutter & Dart (Udemy)</li>
+                        <li>LLMs Engineering (Udemy - in progress)</li>
+                        <li>Fit For Scrum (Certification details)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="section-title">Interests</h2>
+            <div class="card">
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Exploring artificial intelligence and machine learning applications.</li>
+                    <li>Contributing to open-source projects and continuously improving coding skills.</li>
+                    <li>Playing badminton and staying active.</li>
+                    <li>Reading books on technology, programming, and personal development.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 mb-6">
+            <p class="text-sm text-gray-500">
+                Last updated: May 2025
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
